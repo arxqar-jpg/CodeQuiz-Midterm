@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Send feedback or questions to the CodeQuiz student project team.">
+    <meta name="theme-color" content="#07111f">
+    <title>Contacts | CodeQuiz</title>
+    <link rel="icon" href="images/codequiz-badge.svg" type="image/svg+xml">
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark site-navbar sticky-top" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand brand-mark" href="index.html" aria-label="CodeQuiz home"><span>&lt;/&gt;</span> CodeQuiz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="mainNavigation">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero compact-hero">
+            <div class="container text-center">
+                <span class="eyebrow">CONTACT THE TEAM</span>
+                <h1>Have feedback for CodeQuiz?</h1>
+                <p>Use the demo feedback form below. Required fields are marked with *.</p>
+            </div>
+        </section>
+
+        <section class="section-space pt-4">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4">
+                        <aside class="contact-info h-100">
+                            <span class="eyebrow">PROJECT INFO</span>
+                            <h2 class="mt-2">Let’s improve it together.</h2>
+                            <p class="muted-text">This front-end demo validates the form in the browser and shows a success message without sending data to a server.</p>
+                            <div class="contact-point"><span>01</span><div><strong>Topic</strong><small>Programming quizzes</small></div></div>
+                            <div class="contact-point"><span>02</span><div><strong>Course</strong><small>Web Technologies I</small></div></div>
+                            <div class="contact-point"><span>03</span><div><strong>Team</strong><small>Kassymkhan &amp; Darkhan</small></div></div>
+                            <div class="contact-note"><strong>Tip</strong><span>Try submitting with an invalid email to see built-in HTML validation.</span></div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-8">
+                        <section class="contact-form-card" aria-labelledby="form-heading">
+                            <div class="mb-4">
+                                <span class="eyebrow">FEEDBACK FORM</span>
+                                <h2 id="form-heading" class="mt-2 mb-1">Send a message</h2>
+                                <p class="muted-text mb-0">The form is intentionally simple and easy to explain during defense.</p>
+                            </div>
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="name">Your name *</label>
+                                        <input class="form-control" id="name" name="name" type="text" minlength="2" maxlength="50" autocomplete="name" placeholder="Enter your name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="email">Email *</label>
+                                        <input class="form-control" id="email" name="email" type="email" maxlength="80" autocomplete="email" placeholder="name@example.com" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label" for="topic">Topic</label>
+                                        <select class="form-select" id="topic" name="topic">
+                                            <option>Quiz feedback</option>
+                                            <option>Design suggestion</option>
+                                            <option>Bug report</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label" for="message">Message *</label>
+                                        <textarea class="form-control" id="message" name="message" rows="6" minlength="10" maxlength="500" placeholder="Write at least 10 characters..." required></textarea>
+                                        <div class="form-helper"><span>Minimum 10 characters</span><span id="messageCount">0/500</span></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="consent" required>
+                                            <label class="form-check-label" for="consent">I confirm that this message is for the project team.</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                                        <button class="btn btn-glow" type="submit">Send Message <span aria-hidden="true">→</span></button>
+                                        <span id="formStatus" class="form-status" aria-live="polite"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <p class="mb-0"><strong>CodeQuiz</strong> — Learn. Play. Level Up.</p>
+            <p class="mb-0">Developers: Kassymkhan &amp; Darkhan</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

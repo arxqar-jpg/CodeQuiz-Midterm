@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take interactive Java, Python, HTML and CSS quizzes on CodeQuiz.">
+    <meta name="theme-color" content="#07111f">
+    <title>Quiz | CodeQuiz</title>
+    <link rel="icon" href="images/codequiz-badge.svg" type="image/svg+xml">
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="quiz">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark site-navbar sticky-top" aria-label="Main navigation">
+            <div class="container">
+                <a class="navbar-brand brand-mark" href="index.html" aria-label="CodeQuiz home"><span>&lt;/&gt;</span> CodeQuiz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="mainNavigation">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="quiz.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="quiz-page">
+        <section class="page-hero compact-hero">
+            <div class="container text-center">
+                <span class="eyebrow">CODEQUIZ ARENA</span>
+                <h1>Choose a challenge</h1>
+                <p>Five questions. Sixty seconds. Up to 100 XP. Keyboard shortcuts: 1–4.</p>
+            </div>
+        </section>
+
+        <section class="section-space pt-4">
+            <div class="container">
+                <div id="topicSelector" class="quiz-topic-grid" aria-label="Quiz topics">
+                    <button class="quiz-topic-btn" type="button" data-topic="java">
+                        <span class="topic-icon java-icon" aria-hidden="true">J</span>
+                        <span><strong>Java</strong><small>Best: <b data-best-topic="java">0/5</b></small></span>
+                    </button>
+                    <button class="quiz-topic-btn" type="button" data-topic="python">
+                        <span class="topic-icon python-icon" aria-hidden="true">Py</span>
+                        <span><strong>Python</strong><small>Best: <b data-best-topic="python">0/5</b></small></span>
+                    </button>
+                    <button class="quiz-topic-btn" type="button" data-topic="web">
+                        <span class="topic-icon web-icon" aria-hidden="true">&lt;/&gt;</span>
+                        <span><strong>HTML &amp; CSS</strong><small>Best: <b data-best-topic="web">0/5</b></small></span>
+                    </button>
+                </div>
+
+                <section id="quizApp" class="quiz-app mt-4" aria-live="polite">
+                    <div id="quizIntro" class="quiz-empty-state">
+                        <div class="empty-symbol" aria-hidden="true">⌁</div>
+                        <h2>Select a topic above</h2>
+                        <p>Your quiz, timer and progress will appear here.</p>
+                        <div class="intro-tips">
+                            <span>① Pick an answer</span><span>② Read the explanation</span><span>③ Build your streak</span>
+                        </div>
+                    </div>
+
+                    <div id="quizPanel" class="d-none">
+                        <div class="quiz-topline">
+                            <div>
+                                <span class="quiz-label">TOPIC</span>
+                                <h2 id="quizTitle" class="mb-0">Java Basics</h2>
+                            </div>
+                            <div class="quiz-status-cluster">
+                                <div class="streak-box" aria-label="Current correct-answer streak"><span>Streak</span><strong id="streakValue">0</strong></div>
+                                <div class="timer-box" aria-label="Time remaining"><span aria-hidden="true">⏱</span><strong id="timer">60</strong><small>sec</small></div>
+                            </div>
+                        </div>
+
+                        <div class="progress-wrap mt-4" aria-label="Quiz progress">
+                            <div class="d-flex justify-content-between mb-2"><span id="questionCounter">Question 1 of 5</span><span id="progressPercent">20%</span></div>
+                            <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+                        </div>
+
+                        <div id="questionCard" class="question-card mt-4">
+                            <p id="questionText" class="question-text"></p>
+                            <div id="answers" class="answer-list"></div>
+                            <div id="explanationBox" class="explanation-box d-none" role="status">
+                                <strong id="explanationTitle">Why?</strong>
+                                <p id="explanationText" class="mb-0"></p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center gap-3 mt-4 flex-wrap">
+                                <span id="answerHint" class="answer-hint">Choose one answer.</span>
+                                <button id="nextButton" class="btn btn-glow" type="button" disabled>Next Question</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="resultPanel" class="result-panel d-none text-center">
+                        <div class="confetti-row" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+                        <div id="badgeIcon" class="badge-icon" aria-hidden="true">🏆</div>
+                        <span class="eyebrow">CHALLENGE COMPLETE</span>
+                        <h2 id="resultTitle" tabindex="-1">Great work!</h2>
+                        <p id="resultMessage" class="muted-text"></p>
+                        <div class="result-stats">
+                            <div><strong id="scoreValue">0/5</strong><span>Score</span></div>
+                            <div><strong id="xpValue">0 XP</strong><span>Reward</span></div>
+                            <div><strong id="timeValue">0s</strong><span>Time</span></div>
+                        </div>
+                        <div class="achievement-card mt-4">
+                            <span>Achievement unlocked</span>
+                            <strong id="achievementName">Code Rookie</strong>
+                            <small id="bestScoreText">Best score: 0/5</small>
+                        </div>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                            <button id="retryButton" class="btn btn-glow" type="button">Try Again</button>
+                            <button id="changeTopicButton" class="btn btn-outline-light" type="button">Choose Another Topic</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <p class="mb-0"><strong>CodeQuiz</strong> — Learn. Play. Level Up.</p>
+            <p class="mb-0">Developers: Kassymkhan &amp; Darkhan</p>
+        </div>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
